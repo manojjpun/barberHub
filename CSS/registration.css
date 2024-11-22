@@ -1,0 +1,120 @@
+.signup-layout-container,
+.login-layout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  position: relative;
+}
+
+.signup-layout,
+.login-layout {
+  padding: 20px;
+  background-color: #111;
+  border-radius: 10px;
+}
+
+.signup-title,
+.login-title {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 25px; /* Space for the input and error message */
+}
+
+.form-control {
+  width: 400px;
+  height: 40px;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.error-message {
+  position: absolute;
+  color: red;
+  font-size: 14px;
+  top: 45px; /* Position below the input field */
+  left: 0;
+  visibility: hidden; /* Default state: hidden */
+  font-family: sans-serif;
+}
+
+.form-group .error-message.visible {
+  visibility: visible; /* Show error when the class 'visible' is added */
+}
+
+.signup-button,
+.login-button {
+  color: black;
+  background-color: #ffe400;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 406px;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.login-redirect,
+.signup-redirect {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  outline: none;
+  color: white;
+  font-family: sans-serif;
+}
+
+.login-link-anker,
+.signup-link-anker {
+  margin-left: 5px;
+}
+
+.login-link,
+.signup-link {
+  color: #ffe400;
+  text-decoration: none;
+}
+
+.success-message {
+  color: green;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+  animation: showMessage 3s ease forwards;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0; /* Start as invisible */
+}
+
+@keyframes showMessage {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-10px); /* Start small and above */
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0); /* Pop into place slightly bigger */
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1) translateY(0); /* Stay at normal size */
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateY(10px); /* Shrink and move down as it fades */
+  }
+}
+
+
