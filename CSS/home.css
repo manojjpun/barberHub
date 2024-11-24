@@ -1,95 +1,250 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-.home-layout-container{
+*{
+    margin: 0;
     background-color: black;
-    margin: 0;
-    /* padding-top: 1px; */
-}
+    font-family: sans-serif;
+ }
 
-.home-layout{
+ body{
+    background-color: black;
+ }
+
+
+ .home-layout-container{
+    background-color: black;
     width: 90%;
     margin: auto;
-    height: 100vh;
-}
+ }
 
-.header-section{
-    display: flex;
-    margin-top: 10px;
-    position: fixed;
+ .header-section{
     height: 50px;
-    top: -11px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    position: fixed;
+    top: -5px;
     left: 70px;
     right: 70px;
     z-index: 100;
+    border-bottom: 2px solid white;
     background-color: black;
-    /* position: fixed; */
-    /* opacity: 100; */
-}
+ }
 
-.header-left-section{
-    width: 30%;
-}
+ .header-left-section{
+    flex: 1;
+ }
 
-.logo{
-    width: 115px;
-    color: yellow;
+ .logo{
     font-size: 40px;
-    font-family: sans-serif;
     font-weight: bold;
+    color: #ffe400;
     cursor: pointer;
-}
+ }
 
-.header-middle-section{
-    width: 40%;
+ .header-middle-section{
+    flex: 2;
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
+ }
 
-}
-
-.gallery-link,
-.home-link{
+ .home-link,
+ .gallery-link{
     text-decoration: none;
+    font-size: 20px;
     color: white;
-    font-family: sans-serif;
-    font-size: large;
-}
+ }
 
-.gallery-link:hover,
-.home-link:hover{
-    color: yellow;
-}
+ .home-link:hover,
+ .gallery-link:hover{
+    color: #ffe400;
+ }
 
-
-.header-right-section{
-    width: 30%;
+ .header-right-section{
+    flex: 1;
     display: flex;
-    align-items: center; 
-    justify-content: right;   
-}
+    justify-content: center;
+ }
 
-.login-button{
-    padding: 7px 15px;
-    font-size: large;
+ .login-button{
+    padding: 6px 15px;
+    font-size: 20px;
     cursor: pointer;
     background-color: #333333;
     border: none;
     color: white;
-    border-radius: 3px;
-    margin-left: 110px;
-}
+    border-radius: 5px;
+ }
 
-.middle-section{
+ .middle-section{
+    margin-top: 50px;
     background-color: red;
-    height: 1000px;
+    background-color: black;
+ }
+
+ .video-section{
     position: relative;
-    top: 150px;
+ }
+
+ .video-showcase{
+    width: 100%;
+    object-fit: cover;
+    height: 600px;
+    filter: brightness(0.4);
+ }
+
+.slogan-heading{
+    color: white;
+    position: absolute;
+    top: 180px;
+    left: 320px;
+    font-weight: bold;
+    font-size: 35px;
+    background: none;
+}
+
+.slogan-description{
+    color: white;
+    position: absolute;
+    top: 240px;
+    left: 265px;
+    font-size: 20px;
+    background: none;
+}
+
+.appointment-button{
+    position: absolute;
+    top: 300px;
+    left: 555px;    
+    background-color: #ffe400;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.our-gallery-section{
+    margin-top: 20px;
+}
+
+.our-gallery-heading{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.our-gallery{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    column-gap: 50px;
+    height: 410px;
+}
+
+.gallery-grid{
+    /* border: 1px solid white; */
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gallery-image{
+    height: 310px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+ .gallery-title{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffe400;
+}
+
+.gallery-description{
+    color: gray;
+    padding: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.our-barbers-section{
+    margin-top: 20px;
+}
+
+.our-barbers-heading{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.our-barbers{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    column-gap: 20px;
+}
+
+.barbers-grid{
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.barbers-image{
+    height: 310px;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.barbers-link{
+    position: absolute;
+    top: 1360px;
+    left: 200px;
+}
+
+.fa-instagram{
+    width: 150px;
+    height: 150px;
+    color: red;
+    /* opacity: 0;   */
+
+}
+
+.barbers-image:hover,
+.barbers-instagram:hover{
+    filter: brightness(0.4);
+}
+
+.footer-section {
+    margin-top: 50px;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 200px; /* Set height for the footer */
+    background-color: #333; /* Set background color */
+    color: white; /* Set text color */
+}
+
+.footer-logo {
+    font-size: 40px; /* Adjust size for the logo */
+    font-weight: bold;
+    margin-bottom: 5px; /* Add spacing below the logo */
+    background: none;
+    color: #ffe400;
+}
+
+.footer-copyright {
+    font-size: 20px; 
+    background: none;
 }
 
 
 
+ 
