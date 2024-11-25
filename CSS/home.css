@@ -1,79 +1,8 @@
 
-*{
-    margin: 0;
-    background-color: black;
-    font-family: sans-serif;
- }
-
- body{
-    background-color: black;
- }
-
-
- .home-layout-container{
+.home-layout-container{
     background-color: black;
     width: 90%;
     margin: auto;
- }
-
- .header-section{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-    position: fixed;
-    top: -5px;
-    left: 70px;
-    right: 70px;
-    z-index: 100;
-    border-bottom: 2px solid white;
-    background-color: black;
- }
-
- .header-left-section{
-    flex: 1;
- }
-
- .logo{
-    font-size: 40px;
-    font-weight: bold;
-    color: #ffe400;
-    cursor: pointer;
- }
-
- .header-middle-section{
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
- }
-
- .home-link,
- .gallery-link{
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
- }
-
- .home-link:hover,
- .gallery-link:hover{
-    color: #ffe400;
- }
-
- .header-right-section{
-    flex: 1;
-    display: flex;
-    justify-content: center;
- }
-
- .login-button{
-    padding: 6px 15px;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #333333;
-    border: none;
-    color: white;
-    border-radius: 5px;
  }
 
  .middle-section{
@@ -126,6 +55,7 @@
 
 .our-gallery-section{
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .our-gallery-heading{
@@ -171,6 +101,18 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.visit-gallery-button{
+    margin-top: 20px;
+    font-size: 20px;
+    width: 100%;
+    color: black;
+    border: none;
+    background-color: #ffe400;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .our-barbers-section{
@@ -221,29 +163,7 @@
     filter: brightness(0.4);
 }
 
-.footer-section {
-    margin-top: 50px;
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange items vertically */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    height: 200px; /* Set height for the footer */
-    background-color: #333; /* Set background color */
-    color: white; /* Set text color */
-}
 
-.footer-logo {
-    font-size: 40px; /* Adjust size for the logo */
-    font-weight: bold;
-    margin-bottom: 5px; /* Add spacing below the logo */
-    background: none;
-    color: #ffe400;
-}
-
-.footer-copyright {
-    font-size: 20px; 
-    background: none;
-}
 
 
 

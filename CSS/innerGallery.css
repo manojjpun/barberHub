@@ -1,0 +1,100 @@
+
+
+.innerGallery-layout-container{
+    color: white;
+    width: 90%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 70vh; */
+}
+
+.innerGallery-layout{
+    height: 450px;
+    background-color: white;
+    width: 60%;
+    display: flex;
+}
+
+.gallery-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-image-section{
+    flex: 1;
+}
+
+.gallery-info-section{
+    flex: 1;
+    background-color: #333;
+}
+
+.gallery-title{
+    text-align: center;
+    background: none;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ffe400;
+}
+
+.gallery-image-description{
+    padding: 10px;
+    background: none;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.image-description{
+    background: none;
+}
+
+.edit-delete-control{
+    display: flex;
+    background: none;
+    justify-content: center;
+    gap: 30px;
+}
+
+.edit-button,
+.delete-button{
+    padding: 5px 30px;
+    border: none;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.edit-button{
+    background-color: green;
+    color: white;
+}
+
+.delete-button{
+    background-color: red;
+    color: white;
+}
+
+.gallery-appointment-button{
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+
+.style-button{
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ffe400;
+}
+
+

@@ -7,19 +7,9 @@
     <link rel="stylesheet" href="./CSS/home.css">
 </head>
 <body>
+    <?php include "header.php" ?>
     <div class="home-layout-container">
-        <div class="header-section">
-            <div class="header-left-section">
-                <span class="logo">barberHub</span>
-            </div>
-            <div class="header-middle-section">
-                <a class="home-link" href="">Home</a>
-                <a class="gallery-link" href="">Gallery</a>
-            </div>
-            <div class="header-right-section">
-                <button class="login-button" onclick="location.href='login.php'">Login</button>
-            </div>
-        </div>
+        
         <div class="middle-section">
             <div class="video-section">
                 <video class="video-showcase" src="./IMAGES/7697129-hd_1920_1080_30fps.mp4" muted loop autoplay></video>
@@ -30,7 +20,7 @@
             <div class="our-gallery-section">
                 <span class="our-gallery-heading">Our Gallery</span>
                 <div class="our-gallery">
-                    <div class="gallery-grid">
+                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
                         <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
                         <div class="gallery-grid-info">
                             <div class="gallery-title">
@@ -41,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-grid">
+                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
                         <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
                         <div class="gallery-grid-info">
                             <div class="gallery-title">
@@ -52,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-grid">
+                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
                         <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
                         <div class="gallery-grid-info">
                             <div class="gallery-title">
@@ -63,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-grid">
+                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
                         <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
                         <div class="gallery-grid-info">
                             <div class="gallery-title">
@@ -75,6 +65,7 @@
                         </div>
                     </div>
                 </div>
+                <button class="visit-gallery-button" onclick="location.href='gallery.php'">Visit Gallery</button>
             </div>
 
             <!-- <div class="our-barbers-section">
@@ -98,12 +89,9 @@
                 </div>
             </div> -->
 
-            <div class="footer-section">
-                <span class="footer-logo">barberHub</span>
-                <p class="footer-copyright">© 2024 barberHub. All rights reserved.</p>
-            </div>
-
+            
         </div>
     </div>
+    <?php include "footer.php" ?>
 </body>
 </html>
