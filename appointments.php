@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    This is the dashboard page.
+    This is the appointments page.
 </body>
 </html>

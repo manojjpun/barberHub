@@ -2,7 +2,6 @@
 include "database.php";
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,9 +67,10 @@ include "database.php";
 
                 // Insert user into the database if no errors
                 if (empty($fullNameError) && empty($emailError) && empty($passwordError) && empty($emailExistsError)) {
-                    $query = "INSERT INTO users (fullName, email, password) VALUES (?, ?, ?)";
+                    $role = "user";
+                    $query = "INSERT INTO users (fullName, email, password,role) VALUES (?, ?, ?, ?)";
                     $stmt = mysqli_prepare($conn, $query);
-                    mysqli_stmt_bind_param($stmt, "sss", $fullName, $email, $passwordHash);
+                    mysqli_stmt_bind_param($stmt, "ssss", $fullName, $email, $passwordHash,$role);
 
                     if (mysqli_stmt_execute($stmt)) {
                         $successMessage = "Account created successfully!";

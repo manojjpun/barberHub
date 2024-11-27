@@ -42,10 +42,8 @@
 
 .gallery-description{
     color: gray;
-    padding: 5px;
+    padding: 0 0 0 5px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }

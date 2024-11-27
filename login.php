@@ -23,8 +23,8 @@ include "database.php";
             // Initialize variables for errors and values
             $email = $password = "";
             $emailError = $passwordError = "";
-            $emailNotFoundError = ""; // Variable to store email not found error
-            $loginError = ""; // Variable to store login error
+            $emailNotFoundError = ""; 
+            $passwordInvalid = ""; 
 
             // Handle form submission
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -56,15 +56,26 @@ include "database.php";
                     if (mysqli_num_rows($result) == 0) {
                         $emailNotFoundError = "Email not found. Please register.";
                     } else {
-                        // If email exists, fetch user data
+                        // Fetch user data from the result
                         $user = mysqli_fetch_assoc($result);
+
                         // Verify the password
                         if (!password_verify($password, $user['password'])) {
                             $passwordInvalid = "Invalid password.";
                         } else {
                             // Successful login
-                            header("Location: dashboard.php"); // Redirect to a secure page (e.g., dashboard)
-                            exit();
+                            session_start();  // Start session to store user data
+                            $_SESSION['user_id'] = $user['id'];  // Store user ID in session
+                            $_SESSION['role'] = $user['role'];  // Store role in session
+
+                            // Redirect based on role
+                            if ($user['role'] === 'admin') {
+                                header("Location: admin.php"); // Redirect to admin page
+                                exit();
+                            } else {
+                                header("Location: home.php"); // Redirect to home page for normal users
+                                exit();
+                            }
                         }
                     }
                     mysqli_stmt_close($stmt);

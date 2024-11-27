@@ -1,149 +1,48 @@
+
+
+ <?php
+
+include 'database.php';
+
+
+$stmt = mysqli_query($conn, "SELECT * FROM gallery");
+$images = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gallery</title>
     <link rel="stylesheet" href="./CSS/gallery.css">
 </head>
 
 <body>
-    <?php include "header.php" ?>
+    <?php include "header.php"; ?>
+
     <div class="gallery-layout-container">
         <span class="our-gallery-heading">Choose Your Styles</span>
+        
         <div class="our-gallery">
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
+            <?php
+            foreach ($images as $image) {
+                echo "<div class='gallery-grid' onclick='window.location=\"innerGallery.php?id=" . $image['id'] . "\"'>";
+                echo "<img class='gallery-image' src='" . $image['image_path'] . "' alt=''>";
+                echo "<div class='gallery-grid-info'>";
+                echo "<div class='gallery-title'>" . htmlspecialchars($image['title']) . "</div>";
+                echo "<div class='gallery-description'>" . htmlspecialchars($image['description']) . "</div>";
+                echo "</div>"; 
+                echo "</div>"; 
+            }
+            ?>
+        </div> 
+    </div> 
 
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                <div class="gallery-grid-info">
-                    <div class="gallery-title">
-                        Mullet
-                    </div>
-                    <div class="gallery-description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php include "footer.php" ?>
+    <?php include "footer.php"; ?>
 </body>
 
 </html>
+
+

@@ -14,10 +14,13 @@
             <span class="logo">barberHub</span>
         </div>
         <div class="appointments-section">
-            <button class="appointments">Appointments</button>
+            <button class="appointments" onclick="location.href='appointments.php'">Appointments</button>
         </div>
         <div class="add-gallery-section" onclick="location.href='addToGallery.php'">
             <button class="add-gallery">Add to Gallery</button>
+        </div>
+        <div class="take-home">
+            <button class="home-link" onclick="location.href='home.php'">Home</button>
         </div>
     </div>
 </body>

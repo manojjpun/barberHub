@@ -16,7 +16,6 @@
     <?php
     include "adminMainContent.php";
     ?>
-    asdfasfdasdfdas
  </body>
 
  </html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./CSS/home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <?php include "header.php" ?>
@@ -17,79 +18,28 @@
                 <span class="slogan-description">Say goodbye to waiting! Book your haircut appointments effortlessly with our online barber system.</span>
                 <button class="appointment-button">Make an appointment</button>
             </div>
-            <div class="our-gallery-section">
-                <span class="our-gallery-heading">Our Gallery</span>
-                <div class="our-gallery">
-                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                        <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                        <div class="gallery-grid-info">
-                            <div class="gallery-title">
-                                Mullet
-                            </div>
-                            <div class="gallery-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                        <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                        <div class="gallery-grid-info">
-                            <div class="gallery-title">
-                                Mullet
-                            </div>
-                            <div class="gallery-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                        <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                        <div class="gallery-grid-info">
-                            <div class="gallery-title">
-                                Mullet
-                            </div>
-                            <div class="gallery-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-grid" onclick="location.href='innerGallery.php'">
-                        <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-                        <div class="gallery-grid-info">
-                            <div class="gallery-title">
-                                Mullet
-                            </div>
-                            <div class="gallery-description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa asperiores obcaecati dolores voluptatum, repellendus dolorum. Totam, libero unde molestiae at nesciunt illum id explicabo incidunt numquam similique, eveniet corrupti natus.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="visit-gallery-button" onclick="location.href='gallery.php'">Visit Gallery</button>
-            </div>
 
-            <!-- <div class="our-barbers-section">
+            <div class="our-barbers-section">
                 <span class="our-barbers-heading">Meet your barbers</span>
                 <div class="our-barbers">
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Corte de cabelo masculino, barbear masculino na barbearia _ Foto Premium.jpeg" alt="">
-                        <a class="barbers-link" href="https://www.youtube.com/results?search_query=give+link+on+the+hover+image">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
+                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
+                        <!-- <i class="fa-brands fa-instagram"></i> -->
                     </div>
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Corte de cabelo masculino, barbear masculino na barbearia _ Foto Premium.jpeg" alt="">
+                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
+                        <!-- <i class="fa-brands fa-instagram"></i> -->
                     </div>
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Corte de cabelo masculino, barbear masculino na barbearia _ Foto Premium.jpeg" alt="">
+                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
+                        <!-- <i class="fa-brands fa-instagram"></i> -->
                     </div>
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Corte de cabelo masculino, barbear masculino na barbearia _ Foto Premium.jpeg" alt="">
+                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
+                        <!-- <i class="fa-brands fa-instagram"></i> -->
                     </div>
                 </div>
-            </div> -->
-
-            
+            </div>
         </div>
     </div>
     <?php include "footer.php" ?>
