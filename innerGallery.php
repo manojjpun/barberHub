@@ -1,48 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./CSS/innerGallery.css">
-</head>
-
-<body>
-    <?php include "header.php" ?>
-
-    <div class="innerGallery-layout-container">
-        <div class="innerGallery-layout">
-            <div class="gallery-image-section">
-                <img class="gallery-image" src="./IMAGES/_.jpeg" alt="">
-            </div>
-            <div class="gallery-info-section">
-                <div class="gallery-title">
-                    Mullet
-                </div>
-                <div class="gallery-image-description">
-                    <div class="image-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta repellendus rerum nihil obcaecati blanditiis dignissimos ipsam minus aliquid neque unde eum, earum tempore in alias illum officia dolore ut nemo Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reprehenderit repellendus, eaque voluptatibus doloremque temporibus illum deleniti explicabo at quod id nam rerum ab. Consectetur fugiat illo tenetur cupiditate explicabo?
-                    </div>
-                </div>
-                <div class="edit-delete-control">
-                    <button class="edit-button">Edit</button>
-                    <button class="delete-button">Delete</button>
-                </div>
-
-                <div class="gallery-appointment-button">
-                    <button class="style-button">Make appointment with the style</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <?php include "footer.php" ?>
-</body>
-
-</html> -->
-
 <?php
 // Include the database connection
 include 'database.php';
@@ -64,7 +19,17 @@ if (isset($_GET['id'])) {
         exit;
     }
 } else {
-    // If 'id' is not set, redirect to the gallery page
+    header('Location: gallery.php');
+    exit;
+}
+
+// Handle deletion
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
+    $delete_stmt = mysqli_prepare($conn, "DELETE FROM gallery WHERE id = ?");
+    mysqli_stmt_bind_param($delete_stmt, 'i', $gallery_id);
+    mysqli_stmt_execute($delete_stmt);
+
+    // Redirect to the gallery page after deletion
     header('Location: gallery.php');
     exit;
 }
@@ -78,6 +43,11 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inner Gallery</title>
     <link rel="stylesheet" href="./CSS/innerGallery.css">
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this image?");
+        }
+    </script>
 </head>
 
 <body>
@@ -86,23 +56,29 @@ if (isset($_GET['id'])) {
     <div class="innerGallery-layout-container">
         <div class="innerGallery-layout">
             <div class="gallery-image-section">
-                <!-- Display the image -->
-                <img class="gallery-image" src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="">
+                <img class="gallery-image" src="image.php?id=<?php echo $gallery_id; ?>" alt="<?php echo htmlspecialchars($image['title']); ?>">
             </div>
             <div class="gallery-info-section">
                 <div class="gallery-title">
-                    <!-- Display the title -->
                     <?php echo htmlspecialchars($image['title']); ?>
                 </div>
                 <div class="gallery-image-description">
                     <div class="image-description">
-                        <!-- Display the description -->
                         <?php echo nl2br(htmlspecialchars($image['description'])); ?>
                     </div>
                 </div>
+
                 <div class="edit-delete-control">
-                    <button class="edit-button">Edit</button>
-                    <button class="delete-button">Delete</button>
+
+                    <form action="">
+                        <button class="edit-button">Edit</button>
+                    </form>
+
+                    <!-- Delete button -->
+                    <form method="POST" onsubmit="return confirmDelete();">
+                        <input type="hidden" name="delete" value="1">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>
                 </div>
 
                 <div class="gallery-appointment-button">

@@ -9,7 +9,6 @@
  }
 
  .home-layout-container{
-    /* background-color: black; */
     width: 90%;
     margin: auto;
  }
@@ -73,3 +72,59 @@
     color: white;
     border-radius: 5px;
  }
+
+
+.logged-in .login-button {
+   display: none;
+}
+
+.user-greeting {
+   padding: 6px 15px;
+   font-size: 20px;
+   cursor: pointer;
+   background-color: #ffe400;
+   border: none;
+   border-radius: 50px;
+   display: inline-block;
+   position: relative;
+}
+
+.appointment-logout {
+   display: flex;
+   flex-direction: row;
+   position: absolute;
+   top: 43px;
+   background-color: rgb(253, 253, 253);
+   padding-top: 5px;
+   border-radius: 4px;
+}
+
+.my-appointments-button{
+   display: block;
+   border: none;
+   background: none;
+   margin-bottom: 5px;
+   cursor: pointer;
+   padding: 5px 20px;
+   font-size: 15px;
+}
+
+.logout-button{
+   border: none;
+   background: none;
+   margin: 5px 0;
+   cursor: pointer;
+   padding: 5px 20px;
+   font-size: 15px;
+   color: red;
+   width: 100%;
+}
+
+.my-appointments-button:hover{
+   background-color: rgb(242, 236, 236);
+}
+
+
+
+
+

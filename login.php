@@ -67,6 +67,7 @@ include "database.php";
                             session_start();  // Start session to store user data
                             $_SESSION['user_id'] = $user['id'];  // Store user ID in session
                             $_SESSION['role'] = $user['role'];  // Store role in session
+                            $_SESSION['fullName'] = ucwords($user['fullName']);
 
                             // Redirect based on role
                             if ($user['role'] === 'admin') {

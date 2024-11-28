@@ -1,10 +1,8 @@
-
-
- <?php
-
+<?php
+// Include database connection
 include 'database.php';
 
-
+// Fetch images from the database
 $stmt = mysqli_query($conn, "SELECT * FROM gallery");
 $images = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
 ?>
@@ -29,7 +27,10 @@ $images = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
             <?php
             foreach ($images as $image) {
                 echo "<div class='gallery-grid' onclick='window.location=\"innerGallery.php?id=" . $image['id'] . "\"'>";
-                echo "<img class='gallery-image' src='" . $image['image_path'] . "' alt=''>";
+
+                // Display the image directly from binary data
+                echo "<img class='gallery-image' src='data:" . $image['image_type'] . ";base64," . base64_encode($image['image_data']) . "' alt=''>";
+
                 echo "<div class='gallery-grid-info'>";
                 echo "<div class='gallery-title'>" . htmlspecialchars($image['title']) . "</div>";
                 echo "<div class='gallery-description'>" . htmlspecialchars($image['description']) . "</div>";
@@ -44,5 +45,3 @@ $images = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
 </body>
 
 </html>
-
-
