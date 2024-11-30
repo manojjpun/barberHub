@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Appointments</title>
+    <link rel="stylesheet" href="./CSS/tableHeadingData.css">
 </head>
 
 <body>
@@ -14,15 +15,29 @@
     include "adminMainContent.php";
     ?>
 
-    <div class="appointments-sections">
-        <table>
-            <td>FullName</td>
-            <td>image</td>
-            <td>style</td>
-            <td>Comments</td>
-            <td></td>
-        </table>
+    <div class="admin-appointments-section">
+        <div class="table-heading-data">
+            <div class="table-heading">
+                <span>IMAGE</span>
+                <span>TITLE</span>
+                <span>COMMENTS</span>
+                <span>DATE</span>
+            </div>
+            <div class="table-data">
+                <span><img src="./IMAGES/_.jpeg" alt="Mullet Image"></span>
+                <span>Mullet</span>
+                <span>I asgasd</span>
+                <span>2024-10-04</span>
+            </div>
+            <div class="table-data">
+                <span><img src="./IMAGES/_.jpeg" alt="Mullet Image"></span>
+                <span>Mullet</span>
+                <span></span>
+                <span>2024-10-04</span>
+            </div>
+        </div>
     </div>
+
 </body>
 
 </html>
