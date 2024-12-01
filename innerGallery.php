@@ -70,9 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 
                 <div class="edit-delete-control">
 
-                    <form action="">
+                    <!-- <form action="">
                         <button class="edit-button">Edit</button>
-                    </form>
+                    </form> -->
 
                     <!-- Delete button -->
                     <form method="POST" onsubmit="return confirmDelete();">
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                     </form>
                 </div>
 
-                <div class="gallery-appointment-button">
+                <div class="gallery-appointment-button" onclick="location.href='makeAppointment.php'">
                     <button class="style-button">Make appointment with the style</button>
                 </div>
             </div>

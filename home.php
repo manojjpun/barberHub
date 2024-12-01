@@ -16,7 +16,7 @@
                 <video class="video-showcase" src="./IMAGES/7697129-hd_1920_1080_30fps.mp4" muted loop autoplay></video>
                 <span class="slogan-heading">Snip, Style, Schedule - Your Hair, Your Time.</span>
                 <span class="slogan-description">Say goodbye to waiting! Book your haircut appointments effortlessly with our online barber system.</span>
-                <button class="appointment-button">Make an appointment</button>
+                <button class="appointment-button" onclick="location.href='gallery.php'">Make an appointment</button>
             </div>
 
             <div class="our-barbers-section">
