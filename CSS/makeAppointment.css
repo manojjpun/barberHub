@@ -1,7 +1,102 @@
-.appointment-layout-container{
-    margin-top: 120px;
-    width: 90%;
+.user-appointment-section {
+    width: 88%;
+    max-width: 800px; /* Optional: Limits the maximum width */
     margin: auto;
-    background-color: white;
-    color: white;
+    margin-top: 70px;
+    padding: 20px;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.appointment-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    background-color: #f0f0f0;
+}
+
+/* Image styling */
+.appointment-image-container {
+    flex: 0 0 150px;
+}
+
+.appointment-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Details section */
+.appointment-details {
+    flex: 1;
+    background-color: #f0f0f0;
+}
+
+/* Title styling */
+.appointment-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+    background-color: #f0f0f0;
+}
+
+/* Form styling */
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    background-color: #f0f0f0;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white; /* Ensures white background */
+    color: #333;
+    box-sizing: border-box; /* Includes padding and border in total width */
+    font-size: 16px;
+    outline: none;
+}
+
+/* Specific styling for the date input */
+#appointment_date {
+    appearance: none; /* Removes default browser styling */
+    background-color: white; /* White background for the date input */
+    color: #333;
+    font-family: sans-serif;
+}
+
+/* Disable resizing for the textarea */
+.form-textarea {
+    resize: none;
+    height: 50px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffe400;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+

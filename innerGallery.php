@@ -81,9 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                     </form>
                 </div>
 
-                <div class="gallery-appointment-button" onclick="location.href='makeAppointment.php'">
+                <div class="gallery-appointment-button" onclick="location.href='makeAppointment.php?id=<?php echo $gallery_id; ?>'">
                     <button class="style-button">Make appointment with the style</button>
                 </div>
+
             </div>
         </div>
     </div>
