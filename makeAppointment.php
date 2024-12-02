@@ -58,6 +58,39 @@ if (isset($_GET['id'])) {
                         <input type="date" id="appointment_date" name="appointment_date" class="form-input" required>
                     </div>
 
+                    <div class="available-slots" id="timeSlots">
+                        <div class="time-book-status">
+                            <div class="time-slot">
+                                <span>6:00 - 6:30</span>
+                                <button type="button" class="book-button">Book</button>
+                            </div>
+                            <div class="time-slot">
+                                <span>6:30 - 7:00</span>
+                                <button type="button" class="book-button">Book</button>
+                            </div>
+                            <div class="time-slot">
+                                <span>7:00 - 7:30</span>
+                                <button type="button" class="book-button">Book</button>
+                            </div>
+                            <div class="time-slot">
+                                <span>7:30 - 8:00</span>
+                                <button type="button" class="book-button">Book</button>
+                            </div>
+                            <div class="time-slot">
+                                <span>8:00 - 8:30</span>
+                                <button type="button" class="book-button">Book</button>
+                            </div>
+                            <div class="time-slot">
+                                <span>8:00 - 8:30</span>
+                                <button type="button" class="book-button">Book</button>
+                            </div>
+                            <div class="time-slot">
+                                <span>8:00 - 8:30</span>
+                                <button type="button" class="book-button">Book</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="comment" class="form-label">Comments:</label>
                         <textarea id="comment" name="comment" class="form-textarea" placeholder="Enter any additional details or preferences"></textarea>
@@ -72,6 +105,47 @@ if (isset($_GET['id'])) {
     </div>
 
     <?php include "footer.php" ?>;
+
+    <script>
+        // Get the date input and time slots container
+        const appointmentDate = document.getElementById('appointment_date');
+        const timeSlots = document.getElementById('timeSlots');
+
+        // Show time slots when a date is selected
+        appointmentDate.addEventListener('change', function () {
+            if (this.value) {
+                timeSlots.style.display = 'flex'; // Show the time slots
+            } else {
+                timeSlots.style.display = 'none'; // Hide if no date is selected
+            }
+        });
+
+        const bookButtons = document.querySelectorAll('.book-button');
+
+        // Variable to store the currently selected button
+        let selectedButton = null;
+
+        // Add event listeners to each button
+        bookButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Ignore clicks if the button is already booked
+                if (this.classList.contains('booked-button')) {
+                    return;
+                }
+
+                // If there's a previously selected button, reset its text and style
+                if (selectedButton) {
+                    selectedButton.textContent = 'Book';
+                    selectedButton.classList.remove('booked-button');
+                }
+
+                // Set the current button as booked
+                this.textContent = 'Booked';
+                this.classList.add('booked-button');
+                selectedButton = this; // Update the selected button
+            });
+        });
+    </script>
 
 </body>
 

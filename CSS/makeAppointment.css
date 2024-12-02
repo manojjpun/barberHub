@@ -100,3 +100,53 @@
     font-size: 15px;
 }
 
+.available-slots {
+    /* display: flex; */
+    justify-content: center;
+    background: none;
+    margin-bottom: 10px;
+    display: none;
+}
+
+
+.time-book-status {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    background: none;
+}
+
+
+.time-slot {
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+.time-slot span {
+    width: 90px;
+    background-color: #f0f0f0;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.time-slot button {
+    background-color: #13da66;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.booked-button {
+    background-color: gray !important;
+    /* color: white; */
+    pointer-events: none; 
+}
+
