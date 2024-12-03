@@ -22,6 +22,25 @@ if (isset($_GET['id'])) {
     header('Location: gallery.php');
     exit;
 }
+
+// Initialize an empty array to store booked time slots
+$bookedTimeSlots = [];
+
+// Fetch booked time slots for the selected date (if any)
+if (isset($_POST['appointment_date'])) {
+    $appointment_date = $_POST['appointment_date'];
+
+    // Query to fetch booked time slots for the selected date
+    $query = "SELECT time_slot FROM appointments WHERE appointment_date = ? AND gallery_id = ?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, 'si', $appointment_date, $gallery_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $bookedTimeSlots[] = $row['time_slot'];  // Store booked time slots
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +55,7 @@ if (isset($_GET['id'])) {
 
 <body>
 
-    <?php include "header.php" ?>;
+    <?php include "header.php"; ?>
 
     <div class="user-appointment-section">
         <div class="appointment-content">
@@ -60,34 +79,24 @@ if (isset($_GET['id'])) {
 
                     <div class="available-slots" id="timeSlots">
                         <div class="time-book-status">
-                            <div class="time-slot">
-                                <span>6:00 - 6:30</span>
-                                <button type="button" class="book-button">Book</button>
-                            </div>
-                            <div class="time-slot">
-                                <span>6:30 - 7:00</span>
-                                <button type="button" class="book-button">Book</button>
-                            </div>
-                            <div class="time-slot">
-                                <span>7:00 - 7:30</span>
-                                <button type="button" class="book-button">Book</button>
-                            </div>
-                            <div class="time-slot">
-                                <span>7:30 - 8:00</span>
-                                <button type="button" class="book-button">Book</button>
-                            </div>
-                            <div class="time-slot">
-                                <span>8:00 - 8:30</span>
-                                <button type="button" class="book-button">Book</button>
-                            </div>
-                            <div class="time-slot">
-                                <span>8:00 - 8:30</span>
-                                <button type="button" class="book-button">Book</button>
-                            </div>
-                            <div class="time-slot">
-                                <span>8:00 - 8:30</span>
-                                <button type="button" class="book-button">Book</button>
-                            </div>
+                            <?php 
+                            // Define the time slots
+                            $timeSlots = [
+                                '6:00 - 6:30', '6:30 - 7:00', '7:00 - 7:30',
+                                '7:30 - 8:00', '8:00 - 8:30', '8:30 - 9:00'
+                            ];
+
+                            // Loop through the time slots and check if they are booked
+                            foreach ($timeSlots as $slot) {
+                                $isBooked = in_array($slot, $bookedTimeSlots) ? 'booked' : ''; 
+                            ?>
+                                <div class="time-slot <?php echo $isBooked; ?>">
+                                    <span><?php echo $slot; ?></span>
+                                    <button type="button" class="book-button" <?php echo $isBooked ? 'disabled' : ''; ?>>
+                                        <?php echo $isBooked ? 'Booked' : 'Book'; ?>
+                                    </button>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
 
@@ -104,7 +113,7 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 
-    <?php include "footer.php" ?>;
+    <?php include "footer.php"; ?>
 
     <script>
         // Get the date input and time slots container
