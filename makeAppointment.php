@@ -21,12 +21,29 @@ if (isset($_GET['id'])) {
         header('Location: gallery.php');
         exit;
     }
+
+    // Check if the user has any completed appointment (not just for this gallery)
+    if ($isUserLoggedIn) {
+        $user_id = $_SESSION['user_id'];
+        
+        // Query to check the status of any appointment for the user
+        $checkQuery = "SELECT status FROM appointments WHERE user_id = ? AND status = 'complete' ORDER BY created_at DESC LIMIT 1";
+        $stmt = mysqli_prepare($conn, $checkQuery);
+        mysqli_stmt_bind_param($stmt, 'i', $user_id);
+        mysqli_stmt_execute($stmt);
+        $statusResult = mysqli_stmt_get_result($stmt);
+        
+        // If the user has a completed appointment, prevent them from booking
+        if (mysqli_num_rows($statusResult) > 0) {
+            $canBook = false;
+        } else {
+            $canBook = true;
+        }
+    }
 } else {
     header('Location: gallery.php');
     exit;
 }
-
-
 
 // Initialize an empty array to store booked time slots
 $bookedTimeSlots = [];
@@ -83,7 +100,7 @@ if (isset($_POST['appointment_date'])) {
                         <input type="date" id="appointment_date" name="appointment_date" class="form-input" required>
                     </div>
 
-                    <div class="available-slots" id="timeSlots">
+                    <div class="available-slots" id="timeSlots" style="<?php echo !$canBook ? 'display:none;' : ''; ?>">
                         <div class="time-book-status">
                             <?php
                             // Define the time slots
@@ -110,15 +127,22 @@ if (isset($_POST['appointment_date'])) {
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="comment" class="form-label">Comments:</label>
-                        <textarea id="comment" name="comment" class="form-textarea" placeholder="Enter any additional details or preferences"></textarea>
-                    </div>
+                    <!-- Display error message if the user cannot book -->
+                    <?php if (!$canBook) { ?>
+                        <div class="form-group">
+                            <span class="error-message" style="color: red;">You cannot book a new appointment because you have an existing appointment.</span>
+                        </div>
+                    <?php } else { ?>
+                        <div class="form-group">
+                            <label for="comment" class="form-label">Comments:</label>
+                            <textarea id="comment" name="comment" class="form-textarea" placeholder="Enter any additional details or preferences"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="submit-button">Book Appointment</button>
-                        <span class="error-message" id="errorMessage" style="display:none;">Please login to book an appointment.</span>
-                    </div>
+                        <div class="form-group">
+                            <button type="submit" class="submit-button">Book Appointment</button>
+                        </div>
+                    <?php } ?>
+
                 </form>
 
             </div>
@@ -180,8 +204,6 @@ if (isset($_POST['appointment_date'])) {
                 errorMessage.style.display = 'block'; // Display error message
             }
         });
-
-
     </script>
 
 </body>

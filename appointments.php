@@ -1,15 +1,28 @@
 <?php
 include 'database.php';
 
+// Check if the status update has been requested
+if (isset($_GET['complete_id'])) {
+    $appointment_id = $_GET['complete_id'];
+
+    // Update the appointment status to 'completed'
+    $updateQuery = "UPDATE appointments SET status = 'completed' WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $updateQuery);
+    mysqli_stmt_bind_param($stmt, 'i', $appointment_id);
+    mysqli_stmt_execute($stmt);
+}
+
 // Fetch all appointments with user and gallery details
 $query = "
     SELECT 
+        appointments.id,
         users.email, 
         gallery.title, 
         appointments.comment, 
         appointments.appointment_date, 
         gallery.image_data, 
-        gallery.image_type 
+        gallery.image_type, 
+        appointments.status
     FROM 
         appointments
     INNER JOIN users ON appointments.user_id = users.id
@@ -56,31 +69,18 @@ $result = mysqli_query($conn, $query);
                     <span><?php echo htmlspecialchars($row['title']); ?></span>
                     <span><?php echo !empty($row['comment']) ? htmlspecialchars($row['comment']) : 'No comment'; ?></span>
                     <span><?php echo htmlspecialchars($row['appointment_date']); ?></span>
-                    <button id="complete-btn-1" class="complete-button">Complete</button>
+                    <span>
+                        <?php if ($row['status'] == 'completed') { ?>
+                            <button class="complete-button" disabled>Completed</button>
+                        <?php } else { ?>
+                            <a href="?complete_id=<?php echo $row['id']; ?>" class="complete-button">Complete</a>
+                        <?php } ?>
+                    </span>
                 </div>
-
             <?php } ?>
 
         </div>
     </div>
-
-    <script>
-        // Example: Select the button using its ID
-        const completeButton = document.getElementById('complete-btn-1');
-
-        if (completeButton) {
-            completeButton.addEventListener('click', function () {
-                // Change button text to 'Completed'
-                this.textContent = 'Completed';
-                
-                // Disable the button to prevent further clicks
-                this.disabled = true;
-
-                // Optional: Change the button style to indicate it's completed
-                this.style.backgroundColor = 'gray'; // Change color to indicate it is completed
-            });
-        }
-    </script>
 
 </body>
 
