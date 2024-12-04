@@ -76,6 +76,7 @@ if (isset($_POST['appointment_date'])) {
                 <!-- Appointment form -->
                 <form id="appointmentForm" action="submitAppointment.php" method="POST" class="appointment-form">
                     <input type="hidden" name="gallery_id" value="<?php echo $gallery_id; ?>">
+                    <input type="hidden" id="selected_time_slot" name="time_slot" value="">
 
                     <div class="form-group">
                         <label for="appointment_date" class="form-label">Date:</label>
@@ -99,7 +100,7 @@ if (isset($_POST['appointment_date'])) {
                             foreach ($timeSlots as $slot) {
                                 $isBooked = in_array($slot, $bookedTimeSlots) ? 'booked' : '';
                             ?>
-                                <div class="time-slot <?php echo $isBooked; ?>">
+                                <div class="time-slot <?php echo $isBooked; ?>" data-time-slot="<?php echo $slot; ?>">
                                     <span><?php echo $slot; ?></span>
                                     <button type="button" class="book-button" <?php echo $isBooked ? 'disabled' : ''; ?>>
                                         <?php echo $isBooked ? 'Booked' : 'Book'; ?>
@@ -118,8 +119,8 @@ if (isset($_POST['appointment_date'])) {
                         <button type="submit" class="submit-button">Book Appointment</button>
                         <span class="error-message" id="errorMessage" style="display:none;">Please login to book an appointment.</span>
                     </div>
-
                 </form>
+
             </div>
         </div>
     </div>
@@ -130,6 +131,10 @@ if (isset($_POST['appointment_date'])) {
         // Get the date input and time slots container
         const appointmentDate = document.getElementById('appointment_date');
         const timeSlots = document.getElementById('timeSlots');
+        const submitButton = document.getElementById('submitButton');
+        const errorMessage = document.getElementById('errorMessage');
+        const appointmentForm = document.getElementById('appointmentForm');
+        const isUserLoggedIn = <?php echo json_encode($isUserLoggedIn); ?>;
 
         // Show time slots when a date is selected
         appointmentDate.addEventListener('change', function() {
@@ -141,15 +146,13 @@ if (isset($_POST['appointment_date'])) {
         });
 
         const bookButtons = document.querySelectorAll('.book-button');
-
-        // Variable to store the currently selected button
         let selectedButton = null;
 
         // Add event listeners to each button
         bookButtons.forEach(button => {
             button.addEventListener('click', function() {
                 // Ignore clicks if the button is already booked
-                if (this.classList.contains('booked-button')) {
+                if (this.disabled) {
                     return;
                 }
 
@@ -163,13 +166,12 @@ if (isset($_POST['appointment_date'])) {
                 this.textContent = 'Booked';
                 this.classList.add('booked-button');
                 selectedButton = this; // Update the selected button
+
+                // Set the selected time slot in the hidden input field
+                const selectedTimeSlot = this.closest('.time-slot').getAttribute('data-time-slot');
+                document.getElementById('selected_time_slot').value = selectedTimeSlot;
             });
         });
-
-        const isUserLoggedIn = <?php echo json_encode($isUserLoggedIn); ?>;
-        const errorMessage = document.getElementById('errorMessage');
-        const submitButton = document.getElementById('submitButton');
-        const appointmentForm = document.getElementById('appointmentForm');
 
         // Check if user is logged in before form submission
         appointmentForm.addEventListener('submit', function(event) {
@@ -178,6 +180,8 @@ if (isset($_POST['appointment_date'])) {
                 errorMessage.style.display = 'block'; // Display error message
             }
         });
+
+
     </script>
 
 </body>

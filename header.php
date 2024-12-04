@@ -30,7 +30,7 @@ session_start();
                     </div>
 
                     <div class="appointment-logout" id="appointment-logout" style="display: none;">
-                        <button class="my-appointments-button" onclick="showAppointments()">My Appointments</button>
+                        <button class="my-appointments-button" onclick="location.href='myAppointments.php'">My Appointments</button>
                         <hr>
                         <button class="logout-button" onclick="logout()">Logout</button>
                     </div>
@@ -51,12 +51,6 @@ session_start();
             } else {
                 appointmentLogoutDiv.style.display = "none";
             }
-        }
-
-        // Function to handle "My Appointments" button click
-        function showAppointments() {
-            alert("Displaying user appointments...");
-            // Replace this with the actual action to show appointments
         }
 
         // Function to handle Logout
