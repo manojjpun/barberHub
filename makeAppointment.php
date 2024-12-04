@@ -1,6 +1,9 @@
 <?php
+session_start();
 // Include the database connection
 include 'database.php';
+
+$isUserLoggedIn = isset($_SESSION['user_id']);
 
 // Check if the 'id' parameter is set in the URL
 if (isset($_GET['id'])) {
@@ -22,6 +25,8 @@ if (isset($_GET['id'])) {
     header('Location: gallery.php');
     exit;
 }
+
+
 
 // Initialize an empty array to store booked time slots
 $bookedTimeSlots = [];
@@ -69,7 +74,7 @@ if (isset($_POST['appointment_date'])) {
                 <span class="appointment-title"><?php echo htmlspecialchars($image['title']); ?></span>
 
                 <!-- Appointment form -->
-                <form action="submitAppointment.php" method="POST" class="appointment-form">
+                <form id="appointmentForm" action="submitAppointment.php" method="POST" class="appointment-form">
                     <input type="hidden" name="gallery_id" value="<?php echo $gallery_id; ?>">
 
                     <div class="form-group">
@@ -79,16 +84,20 @@ if (isset($_POST['appointment_date'])) {
 
                     <div class="available-slots" id="timeSlots">
                         <div class="time-book-status">
-                            <?php 
+                            <?php
                             // Define the time slots
                             $timeSlots = [
-                                '6:00 - 6:30', '6:30 - 7:00', '7:00 - 7:30',
-                                '7:30 - 8:00', '8:00 - 8:30', '8:30 - 9:00'
+                                '6:00 - 6:30',
+                                '6:30 - 7:00',
+                                '7:00 - 7:30',
+                                '7:30 - 8:00',
+                                '8:00 - 8:30',
+                                '8:30 - 9:00'
                             ];
 
                             // Loop through the time slots and check if they are booked
                             foreach ($timeSlots as $slot) {
-                                $isBooked = in_array($slot, $bookedTimeSlots) ? 'booked' : ''; 
+                                $isBooked = in_array($slot, $bookedTimeSlots) ? 'booked' : '';
                             ?>
                                 <div class="time-slot <?php echo $isBooked; ?>">
                                     <span><?php echo $slot; ?></span>
@@ -107,7 +116,9 @@ if (isset($_POST['appointment_date'])) {
 
                     <div class="form-group">
                         <button type="submit" class="submit-button">Book Appointment</button>
+                        <span class="error-message" id="errorMessage" style="display:none;">Please login to book an appointment.</span>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -121,7 +132,7 @@ if (isset($_POST['appointment_date'])) {
         const timeSlots = document.getElementById('timeSlots');
 
         // Show time slots when a date is selected
-        appointmentDate.addEventListener('change', function () {
+        appointmentDate.addEventListener('change', function() {
             if (this.value) {
                 timeSlots.style.display = 'flex'; // Show the time slots
             } else {
@@ -136,7 +147,7 @@ if (isset($_POST['appointment_date'])) {
 
         // Add event listeners to each button
         bookButtons.forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function() {
                 // Ignore clicks if the button is already booked
                 if (this.classList.contains('booked-button')) {
                     return;
@@ -153,6 +164,19 @@ if (isset($_POST['appointment_date'])) {
                 this.classList.add('booked-button');
                 selectedButton = this; // Update the selected button
             });
+        });
+
+        const isUserLoggedIn = <?php echo json_encode($isUserLoggedIn); ?>;
+        const errorMessage = document.getElementById('errorMessage');
+        const submitButton = document.getElementById('submitButton');
+        const appointmentForm = document.getElementById('appointmentForm');
+
+        // Check if user is logged in before form submission
+        appointmentForm.addEventListener('submit', function(event) {
+            if (!isUserLoggedIn) {
+                event.preventDefault(); // Prevent form submission
+                errorMessage.style.display = 'block'; // Display error message
+            }
         });
     </script>
 

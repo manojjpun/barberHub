@@ -98,6 +98,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .available-slots {
@@ -149,4 +150,10 @@
     /* color: white; */
     pointer-events: none; 
 }
+
+.error-message{
+    background: none;
+    color: red;
+}
+
 

@@ -1,0 +1,45 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.message-container {
+    /* background-color: pink; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Message styling */
+.message p {
+    font-size: 1.2em;
+    color: #28a745;;
+    margin: 20px 0;
+}
+
+.message p {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+
+/* Back button styling */
+.back-button {
+    display: inline-block;
+    background-color: #ffe400;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+

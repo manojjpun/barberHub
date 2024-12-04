@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+
+/* Main Content Section */
+.appointment-confirmation-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.success-message {
+    font-size: 18px;
+    color: #28a745; /* Green for success */
+    position: absolute;
+    top: 200px;
+    left: 480px;
+    background-color: #ddd;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    margin-top: 110px;
+    padding: 12px 24px;
+    background-color: #ffe400;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}

@@ -2,13 +2,6 @@
 include 'database.php';
 session_start(); // Start session to access user data
 
-// Check if user is logged in and get their user ID
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    die("Error: User not logged in.");
-}
-
 // Get form data
 $gallery_id = $_POST['gallery_id'];
 $appointment_date = $_POST['appointment_date'];
@@ -36,8 +29,7 @@ if (mysqli_stmt_execute($stmt)) {
 </head>
 
 <body>
-
-
+    <?php include "header.php"; ?>
 
     <div class="appointment-confirmation-section">
         <div class="confirmation-message">
@@ -51,8 +43,7 @@ if (mysqli_stmt_execute($stmt)) {
         <a href="makeAppointment.php?id=<?php echo $gallery_id; ?>" class="back-button">Go Back</a>
     </div>
 
-
-
+    <?php include "footer.php"; ?>
 </body>
 
 </html>
