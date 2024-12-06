@@ -22,12 +22,13 @@
 .login-title {
   font-family: sans-serif;
   text-align: center;
-  color: white;
+  color: rgb(189, 182, 182);
+  margin-bottom: 10px;
 }
 
 .form-group {
   position: relative;
-  margin-bottom: 25px; /* Space for the input and error message */
+  margin-bottom: 25px; 
 }
 
 .form-control {
@@ -43,14 +44,14 @@
   position: absolute;
   color: red;
   font-size: 14px;
-  top: 45px; /* Position below the input field */
+  top: 45px;
   left: 0;
-  visibility: hidden; /* Default state: hidden */
+  visibility: hidden; 
   font-family: sans-serif;
 }
 
 .form-group .error-message.visible {
-  visibility: visible; /* Show error when the class 'visible' is added */
+  visibility: visible;
 }
 
 .signup-button,
@@ -72,7 +73,7 @@
   display: flex;
   justify-content: center;
   outline: none;
-  color: white;
+  color: rgb(189, 182, 182);
   font-family: sans-serif;
 }
 
@@ -97,7 +98,7 @@
   position: absolute;
   right: 10px;
   top: 10px;
-  opacity: 0; /* Start as invisible */
+  opacity: 0; 
 }
 
 @keyframes showMessage {

@@ -1,6 +1,7 @@
 <?php
 // Include the database connection
 include 'database.php';
+session_start();
 
 // Check if the 'id' parameter is set in the URL
 if (isset($_GET['id'])) {
@@ -24,7 +25,7 @@ if (isset($_GET['id'])) {
 }
 
 // Handle deletion
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete']) && $_SESSION['role'] === 'admin') {
     $delete_stmt = mysqli_prepare($conn, "DELETE FROM gallery WHERE id = ?");
     mysqli_stmt_bind_param($delete_stmt, 'i', $gallery_id);
     mysqli_stmt_execute($delete_stmt);
@@ -68,17 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                     </div>
                 </div>
 
-                <div class="edit-delete-control">
-
-                    <!-- <form action="">
-                        <button class="edit-button">Edit</button>
-                    </form> -->
+                <div class="delete-control">
 
                     <!-- Delete button -->
-                    <form method="POST" onsubmit="return confirmDelete();">
-                        <input type="hidden" name="delete" value="1">
-                        <button type="submit" class="delete-button">Delete</button>
-                    </form>
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
+                        <!-- Delete button for admin -->
+                        <form method="POST" onsubmit="return confirmDelete();">
+                            <input type="hidden" name="delete" value="1">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    <?php } ?>
+
                 </div>
 
                 <div class="gallery-appointment-button" onclick="location.href='makeAppointment.php?id=<?php echo $gallery_id; ?>'">

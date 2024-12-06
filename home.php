@@ -23,20 +23,16 @@
                 <span class="our-barbers-heading">Meet your barbers</span>
                 <div class="our-barbers">
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
-                        <!-- <i class="fa-brands fa-instagram"></i> -->
+                        <img class="barbers-image" onClick="window.open('https://www.instagram.com/manojjpun/', '_blank')" src="./IMAGES/Justin Lister.jpeg" alt="">
                     </div>
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
-                        <!-- <i class="fa-brands fa-instagram"></i> -->
+                        <img class="barbers-image" onClick="window.open('https://www.instagram.com/manojjpun/', '_blank')" src="./IMAGES/barber2.jpg" alt="">
                     </div>
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
-                        <!-- <i class="fa-brands fa-instagram"></i> -->
+                        <img class="barbers-image" onClick="window.open('https://www.instagram.com/manojjpun/', '_blank')" src="./IMAGES/barber3.jpg" alt="">
                     </div>
                     <div class="barbers-grid">
-                        <img class="barbers-image" src="./IMAGES/Justin Lister.jpeg" alt="">
-                        <!-- <i class="fa-brands fa-instagram"></i> -->
+                        <img class="barbers-image" onClick="window.open('https://www.instagram.com/manojjpun/', '_blank')" src="./IMAGES/barber4.jpeg" alt="">
                     </div>
                 </div>
             </div>

@@ -11,14 +11,17 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id']; // Get the logged-in user's ID
 
-// Query to get the user's appointments from the database
-$query = "SELECT appointment_date, time_slot FROM appointments WHERE user_id = ? ORDER BY appointment_date";
+// Query to get the user's appointments that are not completed
+$query = "SELECT DISTINCT appointment_date, time_slot, status FROM appointments 
+          WHERE user_id = ? 
+          AND (status IS NULL OR TRIM(status) != 'completed') 
+          ORDER BY appointment_date";
 $stmt = mysqli_prepare($conn, $query);
 mysqli_stmt_bind_param($stmt, 'i', $user_id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
-// Fetch all appointments for the logged-in user
+// Fetch all appointments for the logged-in user that are not completed
 $appointments = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $appointments[] = $row;

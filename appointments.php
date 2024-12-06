@@ -27,7 +27,9 @@ $query = "
         appointments
     INNER JOIN users ON appointments.user_id = users.id
     INNER JOIN gallery ON appointments.gallery_id = gallery.id
+    WHERE appointments.status != 'completed'
     ORDER BY appointments.created_at DESC";
+
 
 $result = mysqli_query($conn, $query);
 ?>
@@ -73,7 +75,7 @@ $result = mysqli_query($conn, $query);
                         <?php if ($row['status'] == 'completed') { ?>
                             <button class="complete-button" disabled>Completed</button>
                         <?php } else { ?>
-                            <a href="?complete_id=<?php echo $row['id']; ?>" class="complete-button">Complete</a>
+                            <a style="text-decoration: none;" href="?complete_id=<?php echo $row['id']; ?>" class="complete-button">Complete</a>
                         <?php } ?>
                     </span>
                 </div>

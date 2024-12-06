@@ -9,7 +9,6 @@ body {
 }
 
 
-/* Main Content Section */
 .appointment-confirmation-section {
     flex-grow: 1;
     display: flex;
@@ -22,7 +21,7 @@ body {
 
 .success-message {
     font-size: 18px;
-    color: #28a745; /* Green for success */
+    color: #28a745;
     position: absolute;
     top: 200px;
     left: 480px;
@@ -31,7 +30,6 @@ body {
     border-radius: 10px;
 }
 
-/* Back Button */
 .back-button {
     display: inline-block;
     margin-top: 110px;

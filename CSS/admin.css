@@ -12,7 +12,7 @@ body {
 
 .sidebar-section {
     width: 16%;
-    color: white;
+    color: rgb(189, 182, 182);
     height: 100vh; 
     padding-top: 20px;
     
@@ -45,13 +45,13 @@ body {
     background-color: #333;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: rgb(189, 182, 182);
     cursor: pointer;
 }
 
 .main-content-section {
     width: 84%;
-    color: white;
+    color: rgb(189, 182, 182);
     padding-top: 20px;
     height: 100vh;
     position: absolute;
@@ -119,7 +119,7 @@ body {
 
 .upload-image-title{
     font-size: 20px;
-    color: white;
+    color: rgb(189, 182, 182);
     margin-bottom: 5px;
 }
 
@@ -127,7 +127,6 @@ body {
     display: none;
 }
 
-/* Style the label to act as the file input trigger */
 .upload-image-label {
     cursor: pointer;
     position: relative;
@@ -136,7 +135,6 @@ body {
     width: 0;
 }
 
-/* Style the image inside the label */
 .upload-icon {
     width: 120px;  
     height: 120px;
@@ -155,7 +153,7 @@ body {
 
 .upload-title,
 .description-title{
-    color: white;
+    color: rgb(189, 182, 182);
     font-size: 20px;
     margin-bottom: 10px;
 }

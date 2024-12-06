@@ -23,7 +23,7 @@
  }
 
 .slogan-heading{
-    color: white;
+    color: rgb(189, 182, 182);
     position: absolute;
     top: 180px;
     left: 320px;
@@ -33,7 +33,7 @@
 }
 
 .slogan-description{
-    color: white;
+    color: rgb(189, 182, 182);
     position: absolute;
     top: 240px;
     left: 265px;
@@ -59,7 +59,7 @@
 }
 
 .our-barbers-heading{
-    color: white;
+    color: rgb(189, 182, 182);
     font-size: 30px;
     font-weight: bold;
 }
@@ -75,6 +75,7 @@
 .barbers-grid{
     border-radius: 10px;
     cursor: pointer;
+    filter: brightness(0.4);
 }
 
 .barbers-image{
@@ -82,6 +83,7 @@
     width: 100%;
     border-radius: 10px;
 }
+
 
 
 

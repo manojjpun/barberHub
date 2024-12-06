@@ -1,6 +1,6 @@
 .user-appointment-section {
     width: 88%;
-    max-width: 800px; /* Optional: Limits the maximum width */
+    max-width: 800px; 
     margin: auto;
     margin-top: 70px;
     padding: 20px;
@@ -17,7 +17,6 @@
     background-color: #f0f0f0;
 }
 
-/* Image styling */
 .appointment-image-container {
     flex: 0 0 150px;
 }
@@ -28,13 +27,11 @@
     border-radius: 10px;
 }
 
-/* Details section */
 .appointment-details {
     flex: 1;
     background-color: #f0f0f0;
 }
 
-/* Title styling */
 .appointment-title {
     font-size: 24px;
     font-weight: bold;
@@ -43,7 +40,6 @@
     background-color: #f0f0f0;
 }
 
-/* Form styling */
 .appointment-form {
     display: flex;
     flex-direction: column;
@@ -69,22 +65,20 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: white; /* Ensures white background */
+    background-color: white;
     color: #333;
-    box-sizing: border-box; /* Includes padding and border in total width */
+    box-sizing: border-box;
     font-size: 16px;
     outline: none;
 }
 
-/* Specific styling for the date input */
 #appointment_date {
-    appearance: none; /* Removes default browser styling */
-    background-color: white; /* White background for the date input */
+    appearance: none; 
+    background-color: white; 
     color: #333;
     font-family: sans-serif;
 }
 
-/* Disable resizing for the textarea */
 .form-textarea {
     resize: none;
     height: 50px;
@@ -147,7 +141,7 @@
 
 .booked-button {
     background-color: gray !important;
-    /* color: white; */
+    /* color: rgb(189, 182, 182); */
     pointer-events: none; 
 }
 

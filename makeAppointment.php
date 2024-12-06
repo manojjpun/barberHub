@@ -25,14 +25,14 @@ if (isset($_GET['id'])) {
     // Check if the user has any completed appointment (not just for this gallery)
     if ($isUserLoggedIn) {
         $user_id = $_SESSION['user_id'];
-        
+
         // Query to check the status of any appointment for the user
         $checkQuery = "SELECT status FROM appointments WHERE user_id = ? AND status = 'complete' ORDER BY created_at DESC LIMIT 1";
         $stmt = mysqli_prepare($conn, $checkQuery);
         mysqli_stmt_bind_param($stmt, 'i', $user_id);
         mysqli_stmt_execute($stmt);
         $statusResult = mysqli_stmt_get_result($stmt);
-        
+
         // If the user has a completed appointment, prevent them from booking
         if (mysqli_num_rows($statusResult) > 0) {
             $canBook = false;
@@ -110,7 +110,9 @@ if (isset($_POST['appointment_date'])) {
                                 '7:00 - 7:30',
                                 '7:30 - 8:00',
                                 '8:00 - 8:30',
-                                '8:30 - 9:00'
+                                '8:30 - 9:00',
+                                '9:00 - 9:30',
+                                '9:30 - 10:00'
                             ];
 
                             // Loop through the time slots and check if they are booked
@@ -152,6 +154,19 @@ if (isset($_POST['appointment_date'])) {
     <?php include "footer.php"; ?>
 
     <script>
+        // Get the current date and calculate tomorrow's date
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1); // Set the date to tomorrow
+
+        // Format the date to YYYY-MM-DD format (required for the input type="date")
+        const formattedDate = tomorrow.toISOString().split('T')[0];
+
+        // Set the min attribute to the formatted date
+        const appointmentDateInput = document.getElementById('appointment_date');
+        appointmentDateInput.setAttribute('min', formattedDate);
+
+
         // Get the date input and time slots container
         const appointmentDate = document.getElementById('appointment_date');
         const timeSlots = document.getElementById('timeSlots');

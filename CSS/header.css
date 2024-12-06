@@ -49,7 +49,7 @@
  .gallery-link{
     text-decoration: none;
     font-size: 20px;
-    color: white;
+    color: rgb(189, 182, 182);
  }
 
  .home-link:hover,
@@ -69,7 +69,7 @@
     cursor: pointer;
     background-color: #333333;
     border: none;
-    color: white;
+    color: rgb(189, 182, 182);
     border-radius: 5px;
  }
 

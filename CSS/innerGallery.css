@@ -9,12 +9,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 70vh; */
 }
 
 .innerGallery-layout{
     height: 450px;
-    background-color: white;
     width: 60%;
     display: flex;
 }
@@ -56,18 +54,17 @@
     background: none;
 }
 
-.edit-delete-control{
+.delete-control{
     display: flex;
     background: none;
     justify-content: center;
     gap: 30px;
 }
 
-.edit-delete-control form{
+.delete-control form{
     background: none;
 }
 
-.edit-button,
 .delete-button{
     padding: 5px 30px;
     border: none;
@@ -76,11 +73,6 @@
     cursor: pointer;
     margin-bottom: 20px;
     background: none;
-}
-
-.edit-button{
-    background-color: green;
-    color: white;
 }
 
 .delete-button{
@@ -103,40 +95,5 @@
     background-color: #ffe400;
 }
 
-.edit-form {
-    margin-top: 20px;
-}
-
-.edit-section {
-    margin-bottom: 10px;
-}
-
-.edit-section label {
-    font-size: 18px;
-    color: white;
-}
-
-.edit-section input,
-.edit-section textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-}
-
-.update-button {
-    background-color: #ffe400;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.update-button:hover {
-    background-color: #e0c100;
-}
 
 

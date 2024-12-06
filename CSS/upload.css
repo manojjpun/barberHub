@@ -1,4 +1,4 @@
-/* General body styling */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -9,7 +9,6 @@ body {
     min-height: 100vh;
 }
 .message-container {
-    /* background-color: pink; */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -19,7 +18,6 @@ body {
     text-align: center;
 }
 
-/* Message styling */
 .message p {
     font-size: 1.2em;
     color: #28a745;;
@@ -32,8 +30,6 @@ body {
     background-color: #ddd;
 }
 
-
-/* Back button styling */
 .back-button {
     display: inline-block;
     background-color: #ffe400;
